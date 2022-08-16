@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
 
 import requests
 import json
@@ -19,10 +14,6 @@ def action(token,commands):
 
 s1 = start("tester",2,4)
 token = s1['token']
-
-# print(s)
-
-#print(s1)
 calls = oncalls(token)['calls']
 a=calls
 print(calls)
@@ -65,7 +56,6 @@ while not end:
                                 tempdir.append(evdir[idx][1][k])
                         tempdir.append(evdir[idx][1][l-1])
                         d+=len(tempdir)*3-1
-#                         print("\n\n",tempdir)
                         exit = False
                         enter = False
                         manin = []
@@ -101,7 +91,6 @@ while not end:
                         evdir[idx][1].pop(j)
                         evdir[idx][1].pop(j+i)
         if choose!=-1:
-#             print("m2", m2)
             evdir[choose][1] = copy.deepcopy(newdir)
             evdir[choose][2].append(call['id'])
 
@@ -113,7 +102,6 @@ while not end:
         currentstatus = elevators[i]['status']
         exitlist=[]
         manin = []
-#         print("evdir",i,evdir[i][1],evdir[i][2])
         for p in elevators[i]['passengers']:
             manin.append(p['id'])
             if p['end']==currentfloor:
@@ -136,17 +124,12 @@ while not end:
                         table.append([ent,abs(call['start']-call['end'])])
                         break
             table.sort(key=lambda x:x[1])
-#             print("\n\n\ntable:",table,out)
             for idx in range(out):
                 enterlist.remove(table[idx][0])
                 evdir[i][2].remove(table[idx][0])        
-                
-                
-                
-#         print(enterlist, exitlist)
+
         if currentstatus=='STOPPED':
             if evdir[i][1]:
-#                     print("\n\nevdirpop",i, evdir[i][1])
                 if exitlist or enterlist:
                     c='OPEN'
                 else:
@@ -189,20 +172,8 @@ while not end:
 #         print("\n",aaa)   
 #     print("\n\ncommands", commands)
 #     print("\n=============================================================\n")
-   
-#     time.sleep(0.05)
     end = a['is_end']
-#     print(evdir)
 #     print("call처리수: ", count, "타임스탬프: ", a['timestamp'])
-
-
-# In[13]:
-
-
-
-
-
-# In[ ]:
 
 
 
